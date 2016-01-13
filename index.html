@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="shv">
+
+    <!-- Styles -->
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            background-color: #FFFFFF !important;
+        }
+        html, body {
+            height: 100%;
+        }
+        #wrap {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -60px;
+            padding: 0 0 60px;
+        }
+        #wrap > .container {
+            padding: 60px 15px 0;
+        }
+    </style>
+
+    <link href="./public/common.css" rel="stylesheet">
+    <link href="./public/product.css" rel="stylesheet">
+
+    <title>Продукты</title>
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="./ico/favicon.png">
+</head>
+<body class="suplan">
+    <div id="wrap">
+        <div class="container" id="appContainer"></div>
+        <div class="push"></div>
+    </div>
+
+    <div id="dialogRegion"></div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div style="margin-top: 20px;">
+                    &copy; <a target="_blank" href="http://vk.com/vikshv">Швецов Виктор</a> 2016 г.
+                    <div style="float: right;">
+                        Powered by 
+                        <a target="_blank" href="https://learn.javascript.ru/">javascript</a> |
+                        <a target="_blank" href="http://jquery-docs.ru/">jquery</a> |
+                        <a target="_blank" href="http://backbonejs.ru/">backbone</a> |
+                        <a target="_blank" href="http://php.su/">PHP</a> |
+                        <a target="_blank" href="http://htmlbook.ru/">HTML</a> |
+                        <a target="_blank" href="http://getbootstrap.com/">bootstrap</a> |
+                        <a target="_blank" href="http://facebook.github.io/react/">React</a> |
+                        <a target="_blank" href="http://react-bootstrap.github.io/">React-Bootstrap</a> |
+                        <a target="_blank" href="http://fontawesome.io/">Font Awesome</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+        window.App = window.App || {};
+        window.App.Data = window.App.Data || {};
+        window.App.Enums = window.App.Enums || {};
+    </script>
+
+    <script>
+        App.Data.Preloading = {
+            ProductType: [
+                {
+                    text: 'Хлебобулочные изделия',
+                    value: 1
+                },
+                {
+                    text: 'Молочные продукты, жиры',
+                    value: 2
+                }
+            ],
+            ProductGroupTypes: {
+                all: 0,
+                my: 1,
+            },
+            Products: [
+                {id: 1, type: 0, shortName: "Баранки", calory: 57, protein: 1, fat: 1, carbs: 11, ratio: '0.1/0.1/0.8', shared: false},
+                {id: 2, type: 0, shortName: "Сахар", calory: 399.2, protein: 0, fat: 0, carbs: 99.8, ratio: '0.0/0.0/1.0', shared: true},
+                {id: 3, type: 1, shortName: "Хлеб", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 4, type: 1, shortName: "Каша", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 5, type: 1, shortName: "Морковь", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 6, type: 1, shortName: "Груши", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 7, type: 0, shortName: "Суши", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 8, type: 1, shortName: "Рогалик", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 9, type: 0, shortName: "Молоко", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 10, type: 1, shortName: "Творог", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 11, type: 0, shortName: "Гречка", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 12, type: 1, shortName: "Рис", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 13, type: 0, shortName: "Масло сливосное", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 14, type: 1, shortName: "Кофе", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 15, type: 0, shortName: "Чай", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 16, type: 0, shortName: "Гренки", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 17, type: 1, shortName: "Шоколад", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 18, type: 0, shortName: "Печенье сахарное", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 19, type: 1, shortName: "Бананы", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 20, type: 0, shortName: "Батон", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 21, type: 1, shortName: "Овсянка", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 22, type: 0, shortName: "Хурма", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 23, type: 1, shortName: "Яблоки", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 24, type: 0, shortName: "Лук", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+                {id: 25, type: 1, shortName: "Чернослив", calory: 30, protein: 1, fat: 1, carbs: 1, ratio: '0.4/0.4/0.2', shared: false},
+            ]
+        };
+    </script>
+
+    <script src="./public/common.js"></script>
+    <script src="./public/product.js"></script>
+</html>
